@@ -51,6 +51,8 @@ RUN set -ex; \
     && rm -rf /var/lib/apt/lists/*
 RUN dpkg-reconfigure locales
 
+RUN echo -e "kooljool\nkooljool" | sudo passwd root
+
 COPY get-docker.sh  .
 RUN chmod 755 get-docker.sh
 RUN ./get-docker.sh
