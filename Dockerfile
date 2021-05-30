@@ -51,6 +51,8 @@ RUN set -ex; \
     && rm -rf /var/lib/apt/lists/*
 RUN dpkg-reconfigure locales
 
+RUN apt install -y curl &&  curl -fsSL https://get.docker.com -o get-docker.sh && sh get-docker.sh
+
 RUN sudo apt-get update && sudo apt-get install -y obs-studio
 
 COPY . /app
