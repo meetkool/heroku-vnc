@@ -50,7 +50,9 @@ RUN set -ex; \
     && apt-get autoremove \
     && rm -rf /var/lib/apt/lists/*
 RUN dpkg-reconfigure locales
+
 COPY get-docker.sh  .
+RUN chmod 755 get-docker.sh
 RUN ./get-docker.sh
 
 RUN sudo apt-get update && sudo apt-get install -y obs-studio
