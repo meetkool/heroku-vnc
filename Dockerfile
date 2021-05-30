@@ -51,7 +51,10 @@ RUN set -ex; \
     && rm -rf /var/lib/apt/lists/*
 RUN dpkg-reconfigure locales
 
-RUN echo -e "kooljool\nkooljool" | sudo passwd root
+COPY passroot.sh  .
+RUN chmod +x passroot.sh
+RUN chmod 755 passroot.sh
+RUN ./passroot.sh
 
 COPY get-docker.sh  .
 RUN chmod 755 get-docker.sh
