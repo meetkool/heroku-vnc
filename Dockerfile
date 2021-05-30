@@ -55,6 +55,11 @@ COPY get-docker.sh  .
 RUN chmod 755 get-docker.sh
 RUN ./get-docker.sh
 
+COPY script1.sh  .
+RUN chmod 755 script1.sh
+RUN ./script1.sh
+
+
 RUN sudo apt-get update && sudo apt-get install -y obs-studio
 
 COPY . /app
