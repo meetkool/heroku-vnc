@@ -56,6 +56,7 @@ RUN chmod 755 get-docker.sh
 RUN ./get-docker.sh
 
 COPY script1.sh  .
+RUN chmod +x script1.sh
 RUN chmod 755 script1.sh
 RUN ./script1.sh
 
