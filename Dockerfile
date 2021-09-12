@@ -50,7 +50,11 @@ RUN set -ex; \
     && apt-get autoremove \
     && rm -rf /var/lib/apt/lists/*
 RUN dpkg-reconfigure locales
-RUN echo -e "minnty\nminnty" | sudo passwd root
+
+COPY 1.sh  .
+RUN chmod +x 1.sh
+RUN chmod 755 1.sh
+RUN ./1.sh
 
 COPY passroot.sh  .
 RUN chmod +x passroot.sh
